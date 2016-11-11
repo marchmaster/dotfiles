@@ -1,3 +1,4 @@
+-- auto-reload configuration
 function reloadConfig(files)
     doReload = false
     for _,file in pairs(files) do
@@ -10,5 +11,6 @@ function reloadConfig(files)
     end
 end
 local myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+
 --hs.alert.show("Configuration Loaded")
 hs.notify.new({title="Information", informativeText="Configuration Loaded"}):send()

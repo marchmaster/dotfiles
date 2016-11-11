@@ -1,2 +1,2 @@
 hyper = {'ctrl','cmd','option','shift'}
-super = {'ctrl','cmd'}
+super = {'cmd','option'}

@@ -14,52 +14,40 @@ hotkey.bind(hyper, '[', function() window.focusedWindow():moveToUnit(layout.left
 -- hyper ] for right one half window
 hotkey.bind(hyper, ']', function() window.focusedWindow():moveToUnit(layout.right50) end)
 
--- super n for Left Monitor
-hs.hotkey.bind(hyper, 'o', function() 
-    local w = hs.window.focusedWindow()
-    if not w then 
-        return
-    end
-    local s = w:screen():toWest()
-    if s then
-        w:moveToScreen(s)
-    end
-end)
-
--- super p for Right Monitor
-hs.hotkey.bind(hyper, 'p', function() 
-    local w = hs.window.focusedWindow()
-    if not w then 
-        return
-    end
-    local s = w:screen():toEast()
-    if s then
-        w:moveToScreen(s)
-    end
-end)
-
--- hyper tab for fullscreen
---hotkey.bind(hyper, 'tab', function() window.focusedWindow():toggleFullScreen() end)
---hotkey.bind(hyper, 'tab', function()
-    --if window.focusedWindow() then
-        --local win = window.focusedWindow()
-        --local f = win:frame()
-        --local screen = win:screen()
-        --local max = screen:frame()
-
-        --f.x = max.x
-        --f.y = max.y
-        --f.w = max.w
-        --f.h = max.h
-        --win:setFrame(f)
-    --else
-        --alert.show("No active window")
-    --end
---end)
-
+-- hyper \ for maximize window
 hotkey.bind(hyper, '\\', function() toggle_window_maximized() end)
+
+-- hyper - for upper half window
+hs.hotkey.bind(hyper,"-", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x
+  f.y = max.y
+  f.w = max.w 
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+
+-- hyper = for lower half window
+hs.hotkey.bind(hyper,"=", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x 
+  f.y = max.y + (max.h / 2)
+  f.w = max.w 
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+
 -- Defines for window maximize toggler
 local frameCache = {}
+
 -- Toggle a window between its normal size, and being maximized
 function toggle_window_maximized()
     local win = window.focusedWindow()
@@ -78,13 +66,17 @@ end
 --grid.GRIDHEIGHT = 3
 --grid.MARGINX = 0
 --grid.MARGINY = 0
--- Hotkeys to interact with the window grid
-hotkey.bind(hyper, '1', grid.show)
-hotkey.bind(hyper, '2', grid.pushWindowLeft)
-hotkey.bind(hyper, '3', grid.pushWindowRight)
-hotkey.bind(hyper, '4', grid.pushWindowUp)
-hotkey.bind(hyper, '5', grid.pushWindowDown)
 
+-- Hotkeys to interact with the window grid
+hotkey.bind(hyper, ';', grid.show)
+hotkey.bind({'ctrl','cmd'}, 'h', grid.pushWindowLeft)
+hotkey.bind({'ctrl','cmd'}, 'l', grid.pushWindowRight)
+hotkey.bind({'ctrl','cmd'}, 'k', grid.pushWindowUp)
+hotkey.bind({'ctrl','cmd'}, 'j', grid.pushWindowDown)
+
+hotkey.bind(hyper, '\'', function()
+    hints.windowHints()
+end)
 ------------- Mouse Hightlight --------------- {{{
 hotkey.bind(hyper, '0', function() mouseHighlight() end)
 -- draw a bright red circle around the mouse pointer for a few seconds

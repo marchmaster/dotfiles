@@ -1,4 +1,5 @@
 require "modules/hotkey"
+require "modules/launch"
 require "modules/window"
-require "modules/system"
+require "modules/screen"
 require "modules/reload"
