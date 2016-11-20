@@ -4,20 +4,23 @@ local application = require 'hs.application'
 
 local key2App = {
     a = 'Appcleaner',
-    b = 'Notes',
     c = 'Google Chrome',
     d = 'Dictionary',
     e = 'Evernote',
     f = 'Finder',
     h = 'Hipchat',
     k = 'Keyboard Maestro',
+    l = 'Notes',
     m = 'Mail',
-    n = 'NeteaseMusic', 
+    n = 'NeteaseMusic',
     p = 'System Preferences', 
     q = 'QQ',
+    r = 'reminders',
     s = 'skim', 
+    t = 'teamviewer',
     v = 'Macvim',
     w = 'Calendar',
+    x = 'OmniFocus',
     z = 'Iterm'
 }
 

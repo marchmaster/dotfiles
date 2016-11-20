@@ -75,7 +75,7 @@ end)
     }
 
 -- Only one screen
-hotkey.bind(hyper, '5', function() layout.apply(windowLayout) alert.show("Macbook Layout") end)
+hotkey.bind(hyper, '1', function() layout.apply(windowLayout) alert.show("Macbook Layout") end)
 -- Multiple screens
---hotkey.bind(hyper, '6', function() layout.apply(layout_multiple) alert.show("U2414H + Macbook Layout") end)
+--hotkey.bind(hyper, '2', function() layout.apply(layout_multiple) alert.show("U2414H + Macbook Layout") end)
 --}}}
