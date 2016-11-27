@@ -1,1 +1,1 @@
-# General configuration files
+# General hammerspoon configuration
