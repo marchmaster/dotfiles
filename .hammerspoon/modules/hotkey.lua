@@ -1,2 +1,2 @@
-hyper = {'ctrl','cmd','option','shift'}
+hyper = {'ctrl','shift'}
 super = {'cmd','option'}

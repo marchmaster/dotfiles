@@ -1,7 +1,4 @@
-local hints = require 'hs.hints'
-local hotkey = require 'hs.hotkey'
-
 hs.hints.style='vimperator'
-hotkey.bind('ctrl', 'space', function()
-    hints.windowHints()
+hs.hotkey.bind('ctrl', 'tab', function()
+    hs.hints.windowHints()
 end)
